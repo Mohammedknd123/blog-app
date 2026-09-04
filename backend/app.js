@@ -36,9 +36,10 @@ app.use(
 );
 
 // cors policy
+// CORS policy
 app.use(
   cors({
-    origin: "http://localhost:3000",     //we use cors to allow other ports to take services fromthis backend
+    origin: process.env.CLIENT_DOMAIN,
   }),
 );
 
