@@ -1,0 +1,137 @@
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+  width: 280px;
+
+  flex-shrink: 0;
+
+  padding: 25px;
+
+  background-color: var(--white-color);
+
+  border: 1px solid rgba(29, 45, 61, 0.08);
+
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(29, 45, 61, 0.06);
+}
+
+/* ========================================
+   SIDEBAR TITLE
+======================================== */
+
+.sidebar-title {
+  margin: 0 0 20px;
+
+  padding-bottom: 15px;
+
+  color: var(--primary-color);
+
+  font-size: 20px;
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ========================================
+   CATEGORY LINKS
+======================================== */
+
+.sidebar-links {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.sidebar-link {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+
+  margin-bottom: 10px;
+
+  padding: 12px 15px 12px 20px;
+
+  background-color: #f8fafc;
+
+  color: var(--primary-color);
+
+  border-radius: 9px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  text-transform: capitalize;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.sidebar-link::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  position: absolute;
+
+  left: 9px;
+
+  border-radius: 50%;
+
+  background-color: var(--blue-color);
+}
+
+.sidebar-link:hover {
+  background-color: var(--primary-color);
+
+  color: var(--white-color);
+
+  transform: translateX(4px);
+}
+
+.sidebar-link:hover::before {
+  background-color: var(--white-color);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 990px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar-links {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+  .sidebar-link {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .sidebar {
+    padding: 20px;
+  }
+
+  .sidebar-links {
+    grid-template-columns: 1fr;
+  }
+}

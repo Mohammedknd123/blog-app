@@ -1,0 +1,373 @@
+/* ================================
+   HEADER
+================================ */
+
+.header {
+  width: 100%;
+  min-height: 78px;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid var(--border-color);
+
+  position: relative;
+  z-index: 99;
+}
+
+/* ================================
+   LEFT SECTION
+================================ */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+
+/* Logo */
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+
+  color: var(--primary-color);
+}
+
+.header-logo strong {
+  color: var(--primary-color);
+}
+
+.header-logo i {
+  color: var(--blue-color);
+  font-size: 22px;
+}
+
+/* Mobile Menu */
+
+.header-menu {
+  display: none;
+}
+
+.header-menu i {
+  font-size: 28px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* ================================
+   NAVIGATION
+================================ */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 10px 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  color: var(--secondary-color);
+
+  border-radius: 10px;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.nav-link i {
+  font-size: 17px;
+}
+
+.nav-link:hover {
+  background-color: var(--surface-secondary);
+  color: var(--primary-color);
+}
+
+/* ================================
+   AUTH BUTTONS
+================================ */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-right-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 10px 17px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  border-radius: 12px;
+
+  transition: all 0.25s ease;
+}
+
+/* Login */
+
+.header-right-link:first-child {
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+.header-right-link:first-child:hover {
+  background-color: var(--surface-secondary);
+}
+
+/* Register */
+
+.header-right-link:last-child {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+
+  box-shadow: 0 6px 15px rgba(32, 38, 53, 0.12);
+}
+
+.header-right-link:last-child:hover {
+  transform: translateY(-2px);
+
+  background-color: #30394b;
+
+  box-shadow: 0 10px 20px rgba(32, 38, 53, 0.16);
+}
+
+/* ================================
+   LOGGED IN USER
+================================ */
+
+.header-right-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  position: relative;
+}
+
+.header-right-username {
+  font-size: 15px;
+  font-weight: 600;
+
+  color: var(--primary-color);
+
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.header-right-user-photo {
+  width: 42px;
+  height: 42px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 2px solid var(--white-color);
+
+  box-shadow: 0 3px 10px rgba(31, 38, 135, 0.12);
+
+  cursor: pointer;
+}
+
+/* ================================
+   USER DROPDOWN
+================================ */
+
+.header-right-dropdown {
+  position: absolute;
+
+  right: 0;
+  top: calc(100% + 15px);
+
+  width: 180px;
+
+  padding: 8px;
+
+  background-color: var(--surface-color);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--border-radius-sm);
+
+  box-shadow: var(--shadow-md);
+}
+
+.header-dropdown-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 12px;
+
+  color: var(--secondary-color);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.header-dropdown-item i {
+  font-size: 17px;
+}
+
+.header-dropdown-item:hover {
+  color: var(--primary-color);
+
+  background-color: var(--surface-secondary);
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1050px) {
+  .header {
+    padding: 0 30px;
+  }
+
+  .header-left {
+    gap: 20px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+  }
+
+  .nav-link span {
+    display: none;
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+  .header {
+    min-height: 70px;
+    padding: 0 18px;
+  }
+
+  .header-left {
+    gap: 15px;
+  }
+
+  .header-menu {
+    display: block;
+    order: -1;
+  }
+
+  .navbar {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    background-color: var(--surface-color);
+
+    border-bottom: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-sm);
+
+    overflow: hidden;
+
+    transition: all 0.35s ease;
+
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 0,
+      0 0
+    );
+  }
+
+  .nav-links {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 5px;
+
+    padding: 15px;
+  }
+
+  .nav-link {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    font-size: 16px;
+  }
+
+  .nav-link span {
+    display: inline;
+  }
+
+  .header-right-username {
+    display: none;
+  }
+
+  .header-right-link span {
+    display: none;
+  }
+
+  .header-right-link {
+    padding: 10px 12px;
+  }
+
+  .header-right-link i {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 400px) {
+  .header-logo {
+    font-size: 20px;
+  }
+
+  .header-right {
+    gap: 4px;
+  }
+
+  .header-right-link {
+    padding: 8px 10px;
+  }
+
+  .header-right-user-photo {
+    width: 38px;
+    height: 38px;
+  }
+}

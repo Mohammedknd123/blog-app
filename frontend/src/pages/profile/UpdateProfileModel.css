@@ -1,0 +1,225 @@
+/* ========================================
+   UPDATE PROFILE MODAL OVERLAY
+======================================== */
+
+.update-profile {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background-color: rgba(15, 23, 42, 0.65);
+
+  backdrop-filter: blur(5px);
+
+  z-index: 999;
+}
+
+/* ========================================
+   MODAL
+======================================== */
+
+.update-profile-form {
+  width: min(600px, 100%);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 35px;
+
+  background-color: var(--white-color);
+
+  border-radius: 20px;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+
+  animation: profileModalShow 0.3s ease;
+}
+
+@keyframes profileModalShow {
+  from {
+    opacity: 0;
+
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================
+   CLOSE BUTTON
+======================================== */
+
+.update-profile-form-close {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--gray-color);
+
+  background-color: var(--surface-secondary);
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 19px;
+
+  transition: all 0.2s ease;
+}
+
+.update-profile-form-close:hover {
+  background-color: #fff0f1;
+
+  color: var(--red-color);
+
+  transform: rotate(90deg);
+}
+
+/* ========================================
+   TITLE
+======================================== */
+
+.update-profile-title {
+  margin: 0 0 25px;
+
+  padding-right: 35px;
+
+  color: var(--primary-color);
+
+  font-size: 28px;
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+/* ========================================
+   INPUTS
+======================================== */
+
+.update-profile-input {
+  width: 100%;
+
+  margin: 7px 0;
+
+  padding: 14px 16px;
+
+  background-color: var(--surface-secondary);
+
+  color: var(--primary-color);
+
+  border: 1px solid transparent;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  font-size: 15px;
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.update-profile-input::placeholder {
+  color: var(--gray-color);
+}
+
+.update-profile-input:focus {
+  background-color: var(--white-color);
+
+  border-color: var(--blue-color);
+
+  box-shadow: 0 0 0 4px rgba(52, 112, 184, 0.1);
+}
+
+/* ========================================
+   UPDATE BUTTON
+======================================== */
+
+.update-profile-btn {
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 14px;
+
+  background-color: var(--primary-color);
+
+  color: var(--white-color);
+
+  border: none;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.update-profile-btn:hover {
+  background-color: #30394b;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 20px rgba(29, 45, 61, 0.15);
+}
+
+.update-profile-btn:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+  .update-profile {
+    padding: 15px;
+  }
+
+  .update-profile-form {
+    padding: 28px 20px;
+
+    border-radius: 16px;
+  }
+
+  .update-profile-title {
+    margin-bottom: 20px;
+
+    font-size: 24px;
+  }
+}

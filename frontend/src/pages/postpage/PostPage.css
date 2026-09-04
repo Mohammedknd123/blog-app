@@ -1,0 +1,38 @@
+/* ========================================
+   ALL POSTS PAGE
+======================================== */
+
+.postpage {
+  width: min(100%, 1200px);
+
+  min-height: calc(100vh - 130px);
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 35px;
+
+  margin: 0 auto;
+
+  padding: 45px 5% 30px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 990px) {
+  .postpage {
+    flex-direction: column;
+
+    gap: 30px;
+
+    padding: 35px 20px 25px;
+  }
+}
+
+@media (max-width: 520px) {
+  .postpage {
+    padding: 25px 15px 20px;
+  }
+}

@@ -1,0 +1,191 @@
+/* ========================================
+   HOME PAGE
+======================================== */
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+
+  padding-bottom: 60px;
+
+  background-color: var(--main-color);
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.home-hero-header {
+  width: 100%;
+  height: 380px;
+
+  position: relative;
+
+  margin-bottom: 55px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(15, 23, 42, 0.88),
+      rgba(15, 23, 42, 0.5)
+    ),
+    url("../../images/home-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-hero-header-layout {
+  width: min(100%, 1200px);
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.home-title {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: var(--white-color);
+
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  letter-spacing: -2px;
+}
+
+/* ========================================
+   LATEST POSTS TITLE
+======================================== */
+
+.home-latest-posts {
+  width: min(100%, 1200px);
+
+  margin: 0 auto 30px;
+  padding: 0 5% 15px;
+
+  color: var(--primary-color);
+
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ========================================
+   HOME CONTENT
+======================================== */
+
+.home-container {
+  width: min(100%, 1200px);
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 35px;
+
+  margin: 0 auto;
+
+  padding: 0 5%;
+}
+
+/* ========================================
+   SEE ALL POSTS BUTTON
+======================================== */
+
+.home-see-posts-link {
+  width: min(100%, 1200px);
+
+  margin: 15px auto 0;
+
+  padding: 0 5%;
+}
+
+.home-see-posts-link .home-link {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 55px;
+
+  padding: 12px 20px;
+
+  background-color: var(--primary-color);
+
+  color: var(--white-color);
+
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.home-see-posts-link .home-link:hover {
+  background-color: var(--secondary-color);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 25px rgba(29, 45, 61, 0.18);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 990px) {
+  .home-hero-header {
+    height: 320px;
+  }
+
+  .home-container {
+    flex-direction: column;
+
+    gap: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .home-hero-header {
+    height: 280px;
+
+    margin-bottom: 40px;
+  }
+
+  .home-title {
+    font-size: 42px;
+
+    letter-spacing: -1px;
+  }
+
+  .home-container,
+  .home-latest-posts,
+  .home-see-posts-link {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .home-hero-header {
+    height: 240px;
+  }
+
+  .home-title {
+    font-size: 34px;
+  }
+}

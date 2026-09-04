@@ -1,0 +1,34 @@
+{
+  "name": "blog-backend",
+  "version": "1.0.0",
+  "description": "backend of blog application",
+  "license": "ISC",
+  "author": "Mohammed Kendouci",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.10.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-async-handler": "^1.2.0",
+    "express-rate-limit": "^8.7.0",
+    "express-xss-sanitizer": "^2.0.2",
+    "helmet": "^8.3.0",
+    "hpp": "^0.2.3",
+    "joi": "^18.2.5",
+    "joi-password-complexity": "^5.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.3",
+    "multer": "^2.2.0",
+    "nodemailer": "^9.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

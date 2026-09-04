@@ -1,0 +1,169 @@
+/* ========================================
+   CATEGORY PAGE
+======================================== */
+
+.category {
+  width: min(100%, 1000px);
+
+  min-height: calc(100vh - 130px);
+
+  margin: 0 auto;
+
+  padding: 45px 25px 70px;
+}
+
+/* ========================================
+   CATEGORY TITLE
+======================================== */
+
+.category-title {
+  position: relative;
+
+  width: fit-content;
+
+  margin: 0 0 35px;
+
+  padding-bottom: 14px;
+
+  color: var(--primary-color);
+
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
+
+  border-bottom: none;
+
+  text-transform: capitalize;
+}
+
+/* Blue decorative line */
+
+.category-title::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 65px;
+  height: 4px;
+
+  background-color: var(--blue-color);
+
+  border-radius: 10px;
+}
+
+/* ========================================
+   CATEGORY NOT FOUND
+======================================== */
+
+.category-not-found {
+  width: 100%;
+
+  margin: 50px 0 25px;
+
+  padding: 45px 30px;
+
+  background-color: var(--white-color);
+
+  color: var(--primary-color);
+
+  border: 1px solid rgba(29, 45, 61, 0.08);
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(29, 45, 61, 0.07);
+
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 750;
+
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+.category-not-found span {
+  color: var(--red-color);
+
+  text-transform: capitalize;
+}
+
+/* ========================================
+   BACK TO POSTS BUTTON
+======================================== */
+
+.category-not-found-link {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+
+  padding: 13px 22px;
+
+  background-color: var(--primary-color);
+
+  color: var(--white-color);
+
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.category-not-found-link:hover {
+  background-color: var(--secondary-color);
+
+  color: var(--white-color);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 22px rgba(29, 45, 61, 0.18);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 700px) {
+  .category {
+    padding: 30px 20px 50px;
+  }
+
+  .category-title {
+    margin-bottom: 25px;
+  }
+
+  .category-not-found {
+    margin-top: 30px;
+
+    padding: 35px 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .category {
+    padding: 25px 15px 40px;
+  }
+
+  .category-not-found {
+    padding: 30px 15px;
+
+    font-size: 23px;
+  }
+
+  .category-not-found-link {
+    width: 100%;
+  }
+}

@@ -1,0 +1,298 @@
+/* ========================================
+   ADMIN TABLES
+======================================== */
+
+.table-container {
+  width: 100%;
+  min-height: calc(100vh - 130px);
+
+  display: flex;
+
+  background-color: var(--main-color);
+}
+
+/* ========================================
+   TABLE CONTENT
+======================================== */
+
+.table-wrapper {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 35px;
+
+  overflow-x: auto;
+}
+
+/* ========================================
+   TABLE TITLE
+======================================== */
+
+.table-title {
+  width: max-content;
+
+  margin: 0 0 30px;
+
+  padding-bottom: 12px;
+
+  color: var(--primary-color);
+
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+
+  border-bottom: 3px solid var(--blue-color);
+}
+
+/* ========================================
+   TABLE
+======================================== */
+
+.table {
+  width: 100%;
+
+  min-width: 700px;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  background-color: var(--white-color);
+
+  border: 1px solid rgba(29, 45, 61, 0.08);
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(29, 45, 61, 0.07);
+}
+
+/* ========================================
+   TABLE HEADER
+======================================== */
+
+.table th {
+  padding: 17px 18px;
+
+  background-color: var(--primary-color);
+
+  color: var(--white-color);
+
+  border: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.table th:first-child {
+  border-top-left-radius: 17px;
+}
+
+.table th:last-child {
+  border-top-right-radius: 17px;
+}
+
+/* ========================================
+   TABLE CELLS
+======================================== */
+
+.table td {
+  padding: 16px 18px;
+
+  color: #475569;
+
+  border: none;
+  border-bottom: 1px solid rgba(29, 45, 61, 0.07);
+
+  font-size: 14px;
+
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ========================================
+   TABLE ROW
+======================================== */
+
+.table tbody tr {
+  background-color: var(--white-color);
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* ========================================
+   USER IMAGE
+======================================== */
+
+.table-image {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.table-user-image {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 2px solid rgba(2, 117, 216, 0.15);
+}
+
+.table-username {
+  color: var(--primary-color);
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ========================================
+   ACTION BUTTONS
+======================================== */
+
+.table-button-group {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+.table-button-group button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 13px;
+
+  background-color: var(--blue-color);
+
+  color: var(--white-color);
+
+  border: none;
+  border-radius: 8px;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.table-button-group button:hover {
+  background-color: var(--secondary-color);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 15px rgba(2, 117, 216, 0.2);
+}
+
+/* DELETE BUTTON */
+
+.table-button-group button:last-child {
+  background-color: rgba(220, 53, 69, 0.1);
+
+  color: var(--red-color);
+
+  border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.table-button-group button:last-child:hover {
+  background-color: var(--red-color);
+
+  color: var(--white-color);
+
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.2);
+}
+
+/* LINKS INSIDE BUTTONS */
+
+.table-button-group button a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+  .table-wrapper {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 700px) {
+  .table-container {
+    flex-direction: column;
+  }
+
+  .table-wrapper {
+    width: 100%;
+
+    padding: 20px 15px;
+  }
+
+  .table-title {
+    margin-bottom: 20px;
+
+    font-size: 28px;
+  }
+
+  .table {
+    min-width: 650px;
+  }
+
+  .table th,
+  .table td {
+    padding: 13px 14px;
+  }
+
+  .table-button-group {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .table-button-group button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .table-wrapper {
+    padding: 15px 10px;
+  }
+
+  .table-user-image {
+    width: 40px;
+    height: 40px;
+  }
+}

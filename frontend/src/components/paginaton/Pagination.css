@@ -1,0 +1,158 @@
+/* ========================================
+   PAGINATION
+======================================== */
+
+.pagination {
+  width: min(100%, 1200px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin: 10px auto 60px;
+
+  padding: 0 20px;
+}
+
+/* ========================================
+   PAGE BUTTONS
+======================================== */
+
+.page {
+  min-width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 12px;
+
+  background-color: var(--white-color);
+
+  color: var(--primary-color);
+
+  border: 1px solid rgba(29, 45, 61, 0.12);
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 12px rgba(29, 45, 61, 0.05);
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* ========================================
+   HOVER
+======================================== */
+
+.page:hover:not(:disabled) {
+  background-color: rgba(2, 117, 216, 0.08);
+
+  color: var(--blue-color);
+
+  border-color: var(--blue-color);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 18px rgba(29, 45, 61, 0.1);
+}
+
+/* ========================================
+   ACTIVE PAGE
+======================================== */
+
+.page.active {
+  background-color: var(--primary-color);
+
+  color: var(--white-color);
+
+  border-color: var(--primary-color);
+
+  box-shadow: 0 8px 18px rgba(29, 45, 61, 0.18);
+}
+
+/* ========================================
+   PREVIOUS & NEXT
+======================================== */
+
+.page.previous,
+.page.next {
+  width: auto;
+
+  min-width: 95px;
+
+  padding: 0 18px;
+}
+
+/* ========================================
+   DISABLED
+======================================== */
+
+.page:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+  .pagination {
+    gap: 5px;
+
+    margin-bottom: 40px;
+
+    padding: 0 15px;
+  }
+
+  .page {
+    min-width: 38px;
+    height: 38px;
+
+    padding: 0 9px;
+
+    font-size: 14px;
+  }
+
+  .page.previous,
+  .page.next {
+    min-width: auto;
+
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .page.previous,
+  .page.next {
+    font-size: 0;
+  }
+
+  .page.previous::after {
+    content: "←";
+
+    font-size: 18px;
+  }
+
+  .page.next::after {
+    content: "→";
+
+    font-size: 18px;
+  }
+}

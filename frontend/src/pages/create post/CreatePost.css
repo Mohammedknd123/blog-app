@@ -1,0 +1,262 @@
+/* ========================================
+   CREATE POST PAGE
+======================================== */
+
+.create-post {
+  width: 100%;
+  min-height: calc(100vh - 130px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px 20px;
+
+  background-color: var(--main-color);
+}
+
+/* ========================================
+   PAGE TITLE
+======================================== */
+
+.create-post-title {
+  width: min(100%, 750px);
+
+  margin-bottom: 25px;
+
+  color: var(--primary-color);
+
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
+}
+
+/* ========================================
+   FORM
+======================================== */
+
+.create-post-form {
+  width: min(100%, 750px);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 35px;
+
+  background-color: var(--white-color);
+
+  border: 1px solid rgba(29, 45, 61, 0.08);
+  border-radius: 22px;
+
+  box-shadow: 0 15px 40px rgba(29, 45, 61, 0.08);
+}
+
+/* ========================================
+   INPUTS
+======================================== */
+
+.create-post-input,
+.create-post-textarea {
+  width: 100%;
+
+  margin-bottom: 18px;
+  padding: 14px 16px;
+
+  background-color: #f8f9fb;
+
+  color: var(--primary-color);
+
+  border: 1px solid rgba(119, 134, 151, 0.25);
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 16px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.create-post-input::placeholder,
+.create-post-textarea::placeholder {
+  color: #9aa5b1;
+}
+
+/* ========================================
+   SELECT
+======================================== */
+
+select.create-post-input {
+  cursor: pointer;
+}
+
+/* ========================================
+   TEXTAREA
+======================================== */
+
+.create-post-textarea {
+  min-height: 160px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+}
+
+/* ========================================
+   FOCUS
+======================================== */
+
+.create-post-input:focus,
+.create-post-textarea:focus {
+  background-color: var(--white-color);
+
+  border-color: var(--blue-color);
+
+  box-shadow: 0 0 0 4px rgba(2, 117, 216, 0.1);
+}
+
+/* ========================================
+   FILE UPLOAD
+======================================== */
+
+.create-post-upload {
+  width: 100%;
+
+  margin-top: 2px;
+  margin-bottom: 20px;
+
+  padding: 12px;
+
+  background-color: #f8f9fb;
+
+  color: var(--primary-color);
+
+  border: 1px dashed rgba(119, 134, 151, 0.5);
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.create-post-upload:hover {
+  background-color: #f1f5f9;
+
+  border-color: var(--blue-color);
+}
+
+/* ========================================
+   FILE BUTTON
+======================================== */
+
+.create-post-upload::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 14px;
+
+  background-color: var(--primary-color);
+
+  color: var(--white-color);
+
+  border: none;
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background-color 0.25s ease;
+}
+
+.create-post-upload::file-selector-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* ========================================
+   CREATE BUTTON
+======================================== */
+
+.create-post-btn {
+  width: 100%;
+  min-height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 5px;
+  padding: 12px 20px;
+
+  background-color: var(--primary-color);
+
+  color: var(--white-color);
+
+  border: none;
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.create-post-btn:hover {
+  background-color: var(--secondary-color);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 20px rgba(29, 45, 61, 0.18);
+}
+
+.create-post-btn:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+  .create-post {
+    padding: 35px 15px;
+  }
+
+  .create-post-form {
+    padding: 25px 20px;
+
+    border-radius: 18px;
+  }
+
+  .create-post-title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-post {
+    padding: 25px 12px;
+  }
+
+  .create-post-form {
+    padding: 20px 15px;
+  }
+
+  .create-post-input,
+  .create-post-textarea {
+    font-size: 15px;
+  }
+}

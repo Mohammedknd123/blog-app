@@ -1,0 +1,197 @@
+/* ========================================
+   FORMS PAGE
+======================================== */
+
+.form-container {
+  width: 100%;
+
+  min-height: calc(100vh - 130px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 40px 20px;
+
+  background-color: var(--main-color);
+}
+
+/* ========================================
+   FORM TITLE
+======================================== */
+
+.form-title {
+  margin: 0 0 25px;
+
+  color: var(--primary-color);
+
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+
+  text-align: center;
+}
+
+/* ========================================
+   FORM CARD
+======================================== */
+
+.form {
+  width: min(100%, 500px);
+
+  padding: 35px;
+
+  background-color: var(--white-color);
+
+  border: 1px solid rgba(29, 45, 61, 0.08);
+
+  border-radius: 18px;
+
+  box-shadow: 0 15px 40px rgba(29, 45, 61, 0.08);
+}
+
+/* ========================================
+   FORM GROUP
+======================================== */
+
+.form-group {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.form-label {
+  margin: 0 0 8px;
+
+  color: var(--primary-color);
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ========================================
+   INPUT
+======================================== */
+
+.form-input {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  outline: none;
+
+  background-color: #f8fafc;
+
+  color: var(--primary-color);
+
+  border: 1px solid rgba(29, 45, 61, 0.12);
+
+  border-radius: 10px;
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.form-input::placeholder {
+  color: #94a3b8;
+}
+
+.form-input:focus {
+  background-color: var(--white-color);
+
+  border-color: var(--blue-color);
+
+  box-shadow: 0 0 0 4px rgba(2, 117, 216, 0.1);
+}
+
+/* ========================================
+   SUBMIT BUTTON
+======================================== */
+
+.form-btn {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 20px;
+
+  background-color: var(--primary-color);
+
+  color: var(--white-color);
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.form-btn:hover {
+  background-color: var(--secondary-color);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 20px rgba(29, 45, 61, 0.15);
+}
+
+/* ========================================
+   FORM FOOTER
+======================================== */
+
+.form-footer {
+  margin: 20px 0 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+
+  text-align: center;
+}
+
+.form-footer a {
+  color: var(--blue-color);
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+  .form-container {
+    padding: 30px 15px;
+  }
+
+  .form {
+    padding: 25px 20px;
+  }
+}
