@@ -1,3 +1,6 @@
+const dns = require("dns");
+dns.setDefaultResultOrder("ipv4first");
+
 const express = require("express");
 const multer = require("multer");
 const connectDB = require("./config/db");
@@ -7,16 +10,11 @@ const ratelimiting = require("express-rate-limit");
 const helmet = require("helmet");
 const hpp = require("hpp");
 require("dotenv").config();
-const cors = require('cors')
-
-const dns = require("dns");
-dns.setDefaultResultOrder("ipv4first");
-
-const express = require("express");
-const multer = require("multer");
+const cors = require("cors");
 
 //connection to db
 connectDB();
+
 
 //init app
 const app = express();
@@ -38,7 +36,7 @@ app.use(
   ratelimiting({
     windowMs: 10 * 60 * 1000, // 10 minutes
     max: 200, // Limit each IP to 200 requests per windowMs
-  })
+  }),
 );
 
 // cors policy
@@ -58,13 +56,11 @@ app.use("/api/users", require("./routes/usersRoute"));
 app.use("/api/posts", require("./routes/postRoute"));
 app.use("/api/comments", require("./routes/commentRoute"));
 app.use("/api/categories", require("./routes/categoryRoute"));
-app.use('/api/password', require('./routes/passwordRoute'))
-
+app.use("/api/password", require("./routes/passwordRoute"));
 
 // Eror Handler MiddleWare
-app.use(notFound)
-app.use(errorHandler)
-
+app.use(notFound);
+app.use(errorHandler);
 
 // Return API errors as JSON instead of Express's default HTML response.
 app.use((error, req, res, next) => {
