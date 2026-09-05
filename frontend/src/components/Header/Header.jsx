@@ -72,13 +72,11 @@ export default function Header() {
 
       {user ? (
         <>
-          <div className="header-right-user-info">
-            <span
-              onClick={() => setDropDown((prev) => !prev)}
-              className="header-right-username"
-            >
-              {user?.username}
-            </span>
+          <div
+            onClick={() => setDropDown((prev) => !prev)}
+            className="header-right-user-info"
+          >
+            <span className="header-right-username">{user?.username}</span>
             <img
               src={user?.profilephoto?.url}
               alt="user-photo"
