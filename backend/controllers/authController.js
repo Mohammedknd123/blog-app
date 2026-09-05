@@ -48,61 +48,24 @@ module.exports.registerUserCtrl = asyncHandler(async (req, res) => {
   });
   await verificationToken.save();
 
-  // Check if CLIENT_DOMAIN is configured
-  if (!process.env.CLIENT_DOMAIN) {
-    console.error("CLIENT_DOMAIN environment variable is not set");
-    return res
-      .status(500)
-      .json({ message: "Server configuration error. Please contact support." });
-  }
-
   // making the link
-  const clientDomain = process.env.CLIENT_DOMAIN.replace(/\/$/, ""); // Remove trailing slash if present
-  const link = `${clientDomain}/users/${user._id}/verify/${verificationToken.token}`;
+  const link = `${process.env.CLIENT_DOMAIN}/users/${user._id}/verify/${verificationToken.token}`;
 
   // puting the link into an html template
   const htmlTemplate = `
-  <div style="font-family: Arial, sans-serif; padding: 20px;">
-    <h2>Welcome to Our Blog!</h2>
-    <p>Thank you for creating an account. Please verify your email by clicking the link below:</p>
-    <a href='${link}' style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">
-      Verify Your Email
-    </a>
-    <p style="margin-top: 20px; color: #666; font-size: 12px;">
-      This link will expire in 24 hours. If you didn't create this account, please ignore this email.
-    </p>
-    <p style="margin-top: 10px; color: #666; font-size: 12px;">
-      Or copy and paste this link: ${link}
-    </p>
+  <div>
+  <p>Click on the Link bellow to verify your email</p>
+  <a href='${link}'>Verify</a>
   </div>
   `;
 
-  // sending email to the user
-  try {
-    await sendEmail(user.email, "Verify your Email", htmlTemplate);
-  } catch (emailError) {
-    console.error(
-      "Email sending failed during registration:",
-      emailError.message,
-    );
-    // Delete the user if email fails
-    await User.findByIdAndDelete(user._id);
-    await VerificationToken.deleteOne({ _id: verificationToken._id });
-    return res
-      .status(500)
-      .json({
-        message:
-          "Failed to send verification email. Please try registering again.",
-      });
-  }
+  // sending emil to the user
+  await sendEmail(user.email, "Verify your Email", htmlTemplate);
 
   // send response to client
   res
     .status(201)
-    .json({
-      message:
-        "Account created! We sent you an email, please verify your email address",
-    });
+    .json({ message: "We sent you an email, please verify your email box" });
 });
 
 /**
@@ -147,52 +110,20 @@ module.exports.loginUserCtrl = asyncHandler(async (req, res) => {
       await verificationToken.save();
     }
 
-    // Check if CLIENT_DOMAIN is configured
-    if (!process.env.CLIENT_DOMAIN) {
-      console.error("CLIENT_DOMAIN environment variable is not set");
-      return res
-        .status(500)
-        .json({
-          message: "Server configuration error. Please contact support.",
-        });
-    }
-
-    const clientDomain = process.env.CLIENT_DOMAIN.replace(/\/$/, "");
-    const link = `${clientDomain}/users/${user._id}/verify/${verificationToken.token}`;
+    const link = `${process.env.CLIENT_DOMAIN}/users/${user._id}/verify/${verificationToken.token}`;
 
     const htmlTemplate = `
-    <div style="font-family: Arial, sans-serif; padding: 20px;">
-      <h2>Email Verification Required</h2>
-      <p>Your account needs email verification. Click the link below to verify:</p>
-      <a href='${link}' style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">
-        Verify Your Email
-      </a>
-      <p style="margin-top: 20px; color: #666; font-size: 12px;">
-        This link will expire in 24 hours.
-      </p>
-      <p style="margin-top: 10px; color: #666; font-size: 12px;">
-        Or copy and paste this link: ${link}
-      </p>
-    </div>
-    `;
+  <div>
+  <p>Click on the Link bellow to verify your email</p>
+  <a href='${link}'>Verify</a>
+  </div>
+  `;
 
-    try {
-      await sendEmail(user.email, "Verify your Email", htmlTemplate);
-    } catch (emailError) {
-      console.error("Email sending failed during login:", emailError.message);
-      return res
-        .status(500)
-        .json({
-          message: "Failed to send verification email. Please try again.",
-        });
-    }
+    await sendEmail(user.email, "Verify your Email", htmlTemplate);
 
     return res
       .status(400)
-      .json({
-        message:
-          "Your account is not verified. We sent you an email to verify your account",
-      });
+      .json({ message: "We sent you an email, please verify your email box" });
   }
 
   // generate token (jwt)
