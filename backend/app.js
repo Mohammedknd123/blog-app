@@ -9,6 +9,12 @@ const hpp = require("hpp");
 require("dotenv").config();
 const cors = require('cors')
 
+const dns = require("dns");
+dns.setDefaultResultOrder("ipv4first");
+
+const express = require("express");
+const multer = require("multer");
+
 //connection to db
 connectDB();
 
