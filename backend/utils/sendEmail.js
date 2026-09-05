@@ -3,9 +3,12 @@ const nodemailer = require('nodemailer')
 module.exports = async (userEmail, subject, htmlTemplate) => {
     try {
         const transporter = nodemailer.createTransport({
-          service: "gmail",
+          host: "smtp.gmail.com",
+          port: 465,
+          secure: true,
+          family: 4, // <-- forces IPv4, avoids the IPv6 ENETUNREACH issue
           auth: {
-            user: process.env.APP_EMAIL_ADDRESS, //sender
+            user: process.env.APP_EMAIL_ADDRESS,
             pass: process.env.APP_EMAIL_PASSWORD,
           },
         });
