@@ -39,7 +39,10 @@ app.use(
 // CORS policy
 app.use(
   cors({
-    origin: process.env.CLIENT_DOMAIN,
+    origin: [
+      "http://localhost:3000",
+      "https://blog-app-frontend-699o.onrender.com",
+    ],
   }),
 );
 
