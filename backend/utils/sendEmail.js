@@ -1,31 +1,28 @@
-const nodemailer = require("nodemailer");
+const nodemailer = require('nodemailer')
 
 module.exports = async (userEmail, subject, htmlTemplate) => {
-  try {
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.APP_EMAIL_ADDRESS,
-        pass: process.env.APP_EMAIL_PASSWORD,
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
+    try {
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: process.env.APP_EMAIL_ADDRESS, //sender
+            pass: process.env.APP_EMAIL_PASSWORD,
+          },
+        });
 
-    const info = await transporter.sendMail({
-      from: `"Blog App" <${process.env.APP_EMAIL_ADDRESS}>`,
-      to: userEmail,
-      subject: subject,
-      html: htmlTemplate,
-    });
+        const mailOptions = {
+          from: process.env.APP_EMAIL_ADDRESS,
+          to: userEmail,
+          subject: subject,
+          html: htmlTemplate,
+        };
+        
+        const info = await transporter.sendMail(mailOptions)
+        console.log('Email sent' + info.response)
 
-    console.log("Email sent successfully:", info.messageId);
-  } catch (error) {
-    console.error("Email sending failed:", error);
 
-    throw new Error("Internal server error (nodemailer)");
-  }
-};
+    } catch (error) {
+        console.log(error)
+        throw new Error('Internal server eror (nodemailer)')
+    }
+}
